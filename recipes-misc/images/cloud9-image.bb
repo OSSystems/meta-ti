@@ -4,8 +4,6 @@ require ti-hw-bringup-image.bb
 
 FATPAYLOAD = "${datadir}/beaglebone-getting-started/*"
 
-ROOTFSTYPE_beaglebone = "ext4"
-
 IMAGE_INSTALL += " \
 	cloud9 \
 	task-sdk-target \
@@ -27,5 +25,7 @@ IMAGE_INSTALL += " \
 	nodejs-dev \
 "
 
-export IMAGE_BASENAME = "Cloud9-IDE"
+ROOTFS_beaglebone = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ext4"
+IMAGE_FSTYPES_beaglebone= "ext4"
 
+export IMAGE_BASENAME = "Cloud9-IDE"
